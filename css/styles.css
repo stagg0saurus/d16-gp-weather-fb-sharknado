@@ -1,5 +1,7 @@
 body {
 	background-image: url(img/rawr.png);
+	font-family: futura;
+	text-align: center;
 }
 
 #weather-wrapper {
@@ -9,6 +11,14 @@ body {
 	background: white;
 	border: 5px solid black;
 	padding: 25px;
+}
+
+nav {
+	text-align:  left;
+}
+
+.brand-logo {
+	margin-left: 2em;
 }
 
 /*# sourceMappingURL=styles.css.map */
