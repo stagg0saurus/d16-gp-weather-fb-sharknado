@@ -3,13 +3,17 @@
 <head>
 	<title>Sharknado</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css"></script>
-	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 </head>
 <body>
 
 <!-- EMPTY DIVS FOR EACH VIEW -->
 
+<ul>
+	<li id="auth-btn"> Sign In </li>
+  	<li id="logout" class="is-hidden">Log Out </li>
+</ul>
 
 <div id="weather-wrapper">
 	<div id="login-view"></div>
