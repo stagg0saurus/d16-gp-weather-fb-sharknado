@@ -3,6 +3,12 @@
 
 /* ------ SINGLE DAY VIEW ------ */
 
+let app = require('./app.js');
+console.log('app', app);
+
+
+
+
 function buildWeather(data, zipCode){
 	var output = document.getElementById("single-day-view");
 	var fahrenheit = convertTemp(data.main.temp);
@@ -19,7 +25,7 @@ function buildWeather(data, zipCode){
 	 `;
 
 	 //pass zip code in
-	 threeDay(zipCode);
+	 app.threeDay(zipCode);
 }
 
 
@@ -33,19 +39,19 @@ function prettyWeather(data, zipCode, counter){
 	for (var i = 0; i < counter; i++){
 
 		let dayTemp = convertTemp(data.list[i].temp.day);
-		let nightTemp = convertTemp(data.list[i].temp.night)
+		let nightTemp = convertTemp(data.list[i].temp.night);
 
 		output.innerHTML +=
 		`${data.list[i].weather[0].main}<br>
 		 High of ${dayTemp}&deg; F.<br>
 		 Low of ${nightTemp}&deg; F.<br>
-		--------------------------------<br>`		
+		--------------------------------<br>`;		
 		}
 
 		if(counter ===3){
 			output.innerHTML +=
 			` <a href="#" id="sevenDayView">View 7 Days, yo.</a><br><br>`;
-			sevenDay(zipCode);
+			app.sevenDay(zipCode);
 	}
 }
 
@@ -60,13 +66,21 @@ function convertTemp(kelvin) {
 
 /* -----  EVENT LISTENERS  ----- */
 
-var zipCode = document.getElementById("zipCode");
+	var zipCode = document.getElementById("zipCode");
 zipCode.addEventListener("keydown", function(event){
 	if(event.keyCode === 13) {
-		runWeather();
+		// app.runWeather();
 	}
 });
 
 var submitBtn = document.getElementById("submitZip");
-submitBtn.addEventListener("click", runWeather);
+submitBtn.addEventListener("click", app.runWeather);
+
+
+
+module.exports = {
+	prettyWeather,
+	buildWeather
+
+};
 
